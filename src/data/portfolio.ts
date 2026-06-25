@@ -21,9 +21,9 @@ export const portfolio = {
   
     phone: "+91 8009464355",
   
-    resume: "/resume.pdf",
+ resume: `${import.meta.env.BASE_URL}resume.pdf`,
   
-    profileImage: "/profile.jpeg",
+  profileImage: `${import.meta.env.BASE_URL}profile.jpeg`,
   
     socials: {
       linkedin: "https://www.linkedin.com/in/naimish-singh-aws",
