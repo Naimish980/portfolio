@@ -82,7 +82,7 @@ const Hero = () => {
                 boxShadow: "0 0 25px rgba(239,68,68,.6)",
               }}
               whileTap={{ scale: 0.95 }}
-              href={portfolio.resume}
+              href="https://naimish980.github.io/portfolio/resume.pdf"
               download
               className="flex items-center gap-3 rounded-xl bg-gradient-to-r from-red-600 to-red-500 px-7 py-4 font-semibold text-white"
             >
@@ -155,7 +155,7 @@ const Hero = () => {
             <div className="absolute inset-0 rounded-full bg-red-500 opacity-30 blur-[120px]" />
 
             <img
-              src={portfolio.profileImage}
+              src="https://naimish980.github.io/portfolio/profile.jpeg"
               alt={portfolio.name}
               className="relative h-80 w-80 rounded-full border-4 border-red-500 object-cover shadow-[0_0_60px_rgba(239,68,68,.5)] md:h-96 md:w-96"
             />
