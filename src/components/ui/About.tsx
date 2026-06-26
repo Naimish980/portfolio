@@ -1,7 +1,7 @@
 import { portfolio } from "../../data/portfolio";
 import { motion } from "framer-motion";
 import SectionTitle from "./SectionTitle";
-import Tilt from "react-parallax-tilt";
+
 import {
   FaUserTie,
   FaLaptopCode,
@@ -67,14 +67,7 @@ const About = () => {
   viewport={{ once: true }}
 >
 
-<Tilt
-  glareEnable
-  glareMaxOpacity={0.2}
-  glareColor="#ef4444"
-  scale={1.03}
-  tiltMaxAngleX={8}
-  tiltMaxAngleY={8}
->
+<div>
 
 <div className="group relative overflow-hidden rounded-3xl border border-zinc-800 bg-white/5 p-10 backdrop-blur-xl transition-all duration-500 hover:border-red-500 hover:shadow-[0_0_45px_rgba(239,68,68,.35)]">
 
@@ -126,19 +119,22 @@ className="rounded-full border border-red-500/40 bg-red-500/10 px-4 py-2 text-sm
 
 </div>
 
-<button className="mt-10 flex items-center gap-3 rounded-xl bg-gradient-to-r from-red-600 to-pink-600 px-6 py-4 font-semibold transition hover:scale-105">
-
-
-
-<FaArrowRight />
-
+<button
+  onClick={() => {
+    document.getElementById("skills")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
+  className="mt-10 flex items-center gap-3 rounded-xl bg-gradient-to-r from-red-600 to-pink-600 px-6 py-4 font-semibold transition hover:scale-105"
+>
+  <FaArrowRight />
 </button>
-
 </div>
 
 </div>
 
-</Tilt>
+</div>
 
 </motion.div>
 

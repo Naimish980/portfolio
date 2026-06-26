@@ -15,6 +15,18 @@ const links = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const scrollToSection = (id: string) => {
+  const section = document.getElementById(id);
+
+  if (section) {
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+
+  setOpen(false);
+};
 
   useEffect(() => {
     const onScroll = () => {
@@ -31,7 +43,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ${
         scrolled
           ? "bg-black/70 backdrop-blur-2xl border-b border-red-500/20 shadow-lg shadow-red-500/10"
           : "bg-transparent"
@@ -52,16 +64,16 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
 
           {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="relative text-zinc-300 hover:text-white transition group"
-            >
-              {link.name}
+  <button
+    key={link.name}
+    onClick={() => scrollToSection(link.href.replace("#", ""))}
+    className="relative text-zinc-300 hover:text-white transition group"
+  >
+    {link.name}
 
-              <span className="absolute left-0 -bottom-2 h-[2px] w-0 bg-gradient-to-r from-red-500 to-pink-500 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          ))}
+    <span className="absolute left-0 -bottom-2 h-[2px] w-0 bg-gradient-to-r from-red-500 to-pink-500 transition-all duration-300 group-hover:w-full"></span>
+  </button>
+))}
 
           <motion.a
             whileHover={{
@@ -90,42 +102,31 @@ const Navbar = () => {
 
       </div>
 
-      {/* Mobile Menu */}
-      <motion.div
-        initial={false}
-        animate={{
-          height: open ? "auto" : 0,
-          opacity: open ? 1 : 0,
-        }}
-        className="overflow-hidden bg-black/90 backdrop-blur-xl md:hidden"
+     {/* Mobile Menu */}
+{open && (
+  <div className="fixed left-0 right-0 top-[76px] z-[99999] bg-black/95 backdrop-blur-xl md:hidden">
+
+    {links.map((link) => (
+      <button
+        key={link.name}
+        type="button"
+        onClick={() => scrollToSection(link.href.replace("#", ""))}
+        className="block w-full border-b border-zinc-800 px-6 py-4 text-left text-zinc-300 hover:bg-red-500/10 hover:text-white transition"
       >
-        {links.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            onClick={(e) => {
-  e.preventDefault();
+        {link.name}
+      </button>
+    ))}
 
-  document
-    .querySelector(link.href)
-    ?.scrollIntoView({ behavior: "smooth" });
+    <a
+      href={`${import.meta.env.BASE_URL}resume.pdf`}
+      download
+      className="block px-6 py-5 text-red-400 font-semibold"
+    >
+      Download Resume
+    </a>
 
-  setOpen(false);
-}}
-            className="block border-b border-zinc-800 px-6 py-4 text-zinc-300 hover:bg-red-500/10 hover:text-white transition"
-          >
-            {link.name}
-          </a>
-        ))}
-
-        <a
-         href={`${import.meta.env.BASE_URL}resume.pdf`}
-          download
-          className="block px-6 py-5 text-red-400 font-semibold"
-        >
-          Download Resume
-        </a>
-      </motion.div>
+  </div>
+)}
     </motion.nav>
   );
 };

@@ -96,7 +96,12 @@ const Hero = () => {
                 scale: 1.05,
               }}
               whileTap={{ scale: 0.95 }}
-              href="#contact"
+              onClick={(e) => {
+  e.preventDefault();
+  document
+    .querySelector("#contact")
+    ?.scrollIntoView({ behavior: "smooth" });
+}}
               className="flex items-center gap-3 rounded-xl border border-red-500 px-7 py-4 text-white transition hover:bg-red-500/10"
             >
               <FaEnvelope />
@@ -167,7 +172,12 @@ const Hero = () => {
       {/* Scroll Down */}
 
       <motion.a
-        href="#about"
+        onClick={(e) => {
+  e.preventDefault();
+  document
+    .querySelector("#about")
+    ?.scrollIntoView({ behavior: "smooth" });
+}}
         animate={{
           y: [0, 12, 0],
         }}

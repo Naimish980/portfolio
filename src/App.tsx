@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
+
 import ScrollProgress from "./components/ui/ScrollProgress";
 import Aurora from "./components/ui/Aurora";
 import AnimatedBackground from "./components/ui/AnimatedBackground";
@@ -13,7 +16,7 @@ import Projects from "./components/ui/Projects";
 import Certifications from "./components/ui/Certifications";
 import Contact from "./components/ui/Contact";
 import Footer from "./components/ui/Footer";
-import { useEffect, useState } from "react";
+import BackToTop from "./components/ui/BackToTop";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -23,6 +26,7 @@ function App() {
       setIsMobile(window.matchMedia("(pointer: coarse)").matches);
 
     checkMobile();
+
     window.addEventListener("resize", checkMobile);
 
     return () => window.removeEventListener("resize", checkMobile);
@@ -31,6 +35,24 @@ function App() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-white">
       <ScrollProgress />
+
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: "#18181b",
+            color: "#fff",
+            border: "1px solid #ef4444",
+          },
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 3000,
+          },
+        }}
+      />
+
       <Aurora />
       <AnimatedBackground />
 
@@ -38,7 +60,9 @@ function App() {
       {!isMobile && <CustomCursor />}
 
       <div className="relative z-10">
-        <Navbar />
+        <div className="relative z-[99999]">
+          <Navbar />
+        </div>
 
         <main>
           <Hero />
@@ -49,6 +73,8 @@ function App() {
           <Certifications />
           <Contact />
         </main>
+
+        <BackToTop />
 
         <Footer />
       </div>

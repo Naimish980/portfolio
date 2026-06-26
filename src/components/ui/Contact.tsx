@@ -1,3 +1,6 @@
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { portfolio } from "../../data/portfolio";
 import SectionTitle from "./SectionTitle";
@@ -12,6 +15,53 @@ import {
 } from "react-icons/fa";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    from_name: "",
+    from_email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    try {
+      await emailjs.send(
+        "service_5k52isp",
+        "template_obclalk",
+        formData,
+        "6uR4EaYfCwPncsPE-"
+      );
+
+      toast.success("Message sent successfully!");
+
+      setFormData({
+        from_name: "",
+        from_email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to send message.");
+    }
+
+    setLoading(false);
+  };
+
   return (
     <section
       id="contact"
@@ -162,12 +212,13 @@ const Contact = () => {
           {/* Right */}
 
           <motion.form
-            initial={{ opacity: 0, x: 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: .8 }}
-            viewport={{ once: true }}
-            className="rounded-3xl border border-zinc-800 bg-white/5 p-5 sm:p-8 backdrop-blur-xl"
-          >
+  onSubmit={handleSubmit}
+  initial={{ opacity: 0, x: 80 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: .8 }}
+  viewport={{ once: true }}
+  className="rounded-3xl border border-zinc-800 bg-white/5 p-5 sm:p-8 backdrop-blur-xl"
+>
 
             <h3 className="mb-6 text-2xl sm:text-2xl md:text-3xl font-bold text-white">
 
@@ -177,45 +228,55 @@ const Contact = () => {
 
             <div className="space-y-5">
 
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-white outline-none transition-all duration-300 focus:border-red-500"
-              />
+             <input
+  type="text"
+  name="from_name"
+  placeholder="Your Name"
+  value={formData.from_name}
+  onChange={handleChange}
+  required
+  className="w-full rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-white outline-none transition-all duration-300 focus:border-red-500"
+/>
 
               <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-white outline-none transition-all duration-300 focus:border-red-500"
-              />
+  type="email"
+  name="from_email"
+  placeholder="Your Email"
+  value={formData.from_email}
+  onChange={handleChange}
+  required
+  className="w-full rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-white outline-none transition-all duration-300 focus:border-red-500"
+/>
 
-              <input
-                type="text"
-                placeholder="Subject"
-                className="w-full rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-white outline-none transition-all duration-300 focus:border-red-500"
-              />
+            <input
+  type="text"
+  name="subject"
+  placeholder="Subject"
+  value={formData.subject}
+  onChange={handleChange}
+  required
+  className="w-full rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-white outline-none transition-all duration-300 focus:border-red-500"
+/>
+<textarea
+  rows={4}
+  name="message"
+  placeholder="Your Message..."
+  value={formData.message}
+  onChange={handleChange}
+  required
+  className="w-full rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-white outline-none transition-all duration-300 focus:border-red-500"
+/>
 
-              <textarea
-                rows={4}
-                placeholder="Your Message..."
-                className="w-full rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-white outline-none transition-all duration-300 focus:border-red-500"
-              />
-
-              <motion.button
-                whileHover={{
-                  scale: 1.03,
-                }}
-                whileTap={{
-                  scale: .97,
-                }}
-                className="flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-red-600 to-pink-600 py-4 font-semibold text-white shadow-lg shadow-red-500/30 transition hover:shadow-red-500/60"
-              >
-
-                <FaPaperPlane />
-
-                Send Message
-
-              </motion.button>
+             <motion.button
+  type="submit"
+  disabled={loading}
+  whileHover={{ scale: loading ? 1 : 1.03 }}
+  whileTap={{ scale: loading ? 1 : 0.97 }}
+  className="flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-red-600 to-pink-600 py-4 font-semibold text-white shadow-lg shadow-red-500/30 transition hover:shadow-red-500/60 disabled:cursor-not-allowed disabled:opacity-70"
+>
+  <FaPaperPlane />
+  {loading ? "Sending..." : "Send Message"}
+</motion.button>
 
             </div>
 
