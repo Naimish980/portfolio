@@ -91,14 +91,24 @@ const Certifications = () => {
 
                     </div>
 
-                    <button className="mt-8 flex items-center gap-2 rounded-xl border border-zinc-700 px-5 py-3 transition-all duration-300 hover:border-red-500 hover:bg-red-500/10 hover:text-red-400">
-
-                      View Certificate
-
-                      <FaArrowRight />
-
-                    </button>
-
+                   {cert.link ? (
+  <a
+    href={cert.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-700 px-5 py-3 transition-all duration-300 hover:border-red-500 hover:bg-red-500/10 hover:text-red-400"
+  >
+    View Certificate
+    <FaArrowRight />
+  </a>
+) : (
+  <button
+    disabled
+    className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-700 px-5 py-3 cursor-not-allowed opacity-50"
+  >
+    Certificate Unavailable
+  </button>
+)}
                   </div>
 
                 </div>

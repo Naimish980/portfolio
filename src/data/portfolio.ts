@@ -192,26 +192,28 @@ export const portfolio = {
       }
     ],
   
-    certifications: [
-      {
-        title: "Hardware & Networking",
-        issuer: "CM Solutions",
-        year: "2024"
-      },
-      {
-        title: "AWS Cloud Fundamentals",
-        issuer: "AWS Academy",
-        year: "2025"
-      },
-      {
-        title: "Linux Administration",
-        issuer: "Udemy",
-        year: "2025"
-      },
-      {
-        title: "Microsoft Office",
-        issuer: "Microsoft",
-        year: "2024"
-      }
-    ]
-  };
+  certifications: [
+  {
+    title: "Hardware & Networking",
+    issuer: "CM Solutions",
+    year: "2024"
+  },
+  {
+    title: "AWS Solutions Architecture Job Simulation",
+    issuer: "AWS x Forage",
+    year: "2024",
+    link: "/portfolio/certificates/aws-solution-architecture.pdf"
+  },
+  {
+    title: "Linux Administration",
+    issuer: "Udemy",
+    year: "2025"
+  },
+  {
+    title: "Microsoft Office",
+    issuer: "Microsoft",
+    year: "2024"
+  }
+]
+
+};
