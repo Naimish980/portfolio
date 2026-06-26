@@ -70,7 +70,7 @@ const Navbar = () => {
             whileTap={{
               scale: 0.95,
             }}
-            href="/resume.pdf"
+           href={`${import.meta.env.BASE_URL}resume.pdf`}
             download
             className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-pink-600 px-5 py-3 font-semibold text-white shadow-lg shadow-red-500/30"
           >
@@ -103,7 +103,15 @@ const Navbar = () => {
           <a
             key={link.name}
             href={link.href}
-            onClick={() => setOpen(false)}
+            onClick={(e) => {
+  e.preventDefault();
+
+  document
+    .querySelector(link.href)
+    ?.scrollIntoView({ behavior: "smooth" });
+
+  setOpen(false);
+}}
             className="block border-b border-zinc-800 px-6 py-4 text-zinc-300 hover:bg-red-500/10 hover:text-white transition"
           >
             {link.name}
@@ -111,7 +119,7 @@ const Navbar = () => {
         ))}
 
         <a
-          href="/resume.pdf"
+         href={`${import.meta.env.BASE_URL}resume.pdf`}
           download
           className="block px-6 py-5 text-red-400 font-semibold"
         >

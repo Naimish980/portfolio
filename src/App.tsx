@@ -13,15 +13,29 @@ import Projects from "./components/ui/Projects";
 import Certifications from "./components/ui/Certifications";
 import Contact from "./components/ui/Contact";
 import Footer from "./components/ui/Footer";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () =>
+      setIsMobile(window.matchMedia("(pointer: coarse)").matches);
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-white">
       <ScrollProgress />
       <Aurora />
       <AnimatedBackground />
-      <MouseGlow />
-      <CustomCursor />
+
+      {!isMobile && <MouseGlow />}
+      {!isMobile && <CustomCursor />}
 
       <div className="relative z-10">
         <Navbar />
