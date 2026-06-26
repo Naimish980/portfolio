@@ -21,7 +21,7 @@ export const portfolio = {
   
     phone: "+91 8009464355",
   
- resume: `${import.meta.env.BASE_URL}resume.pdf`,
+  resume: `${import.meta.env.BASE_URL}resume.pdf`,
   
   profileImage: `${import.meta.env.BASE_URL}profile.jpeg`,
   
