@@ -37,10 +37,10 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: .8 }}
             viewport={{ once: true }}
-            className="group rounded-3xl border border-zinc-800 bg-white/5 px-4 py-3md:p-8 ..."
+           className="group rounded-3xl border border-zinc-800 bg-white/5 p-5 md:p-8 backdrop-blur-xl transition-all duration-500 hover:border-red-500 hover:shadow-[0_0_45px_rgba(239,68,68,.35)]"
           >
 
-            <h3 className="mb-6 text-2xl sm:text-3xl font-bold text-white">
+            <h3 className="mb-6 text-2xl md:text-3xl font-bold text-white">
 
               Let's Connect 🚀
 
@@ -74,7 +74,7 @@ const Contact = () => {
                 whileHover={{
                   x: 8,
                 }}
-                className="mb-5 flex items-center gapx-4 py-3 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-5 transition hover:border-red-500 hover:bg-red-500/10"
+                className="mb-5 flex items-center gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 md:p-5 transition hover:border-red-500 hover:bg-red-500/10"
               >
 
                 <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-xl bg-gradient-to-r from-red-600 to-pink-600 text-white">
@@ -118,7 +118,7 @@ const Contact = () => {
 
             ))}
 
-            <div className="mt-10 flex gapx-4 py-3">
+            <div className="mt-8 flex gap-4">
 
               {[
                 {
@@ -196,7 +196,7 @@ const Contact = () => {
               />
 
               <textarea
-                rows={6}
+                rows={4}
                 placeholder="Your Message..."
                 className="w-full rounded-xl border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-white outline-none transition-all duration-300 focus:border-red-500"
               />
