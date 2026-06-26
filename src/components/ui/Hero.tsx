@@ -77,18 +77,19 @@ const Hero = () => {
             className="mt-10 flex flex-wrap gap-5"
           >
             <motion.a
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 25px rgba(239,68,68,.6)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              href="https://naimish980.github.io/portfolio/resume.pdf"
-              download
-              className="flex items-center gap-3 rounded-xl bg-gradient-to-r from-red-600 to-red-500 px-7 py-4 font-semibold text-white"
-            >
-              <FaDownload />
-              Download Resume
-            </motion.a>
+  whileHover={{
+    scale: 1.05,
+    boxShadow: "0 0 25px rgba(239,68,68,.6)",
+  }}
+  whileTap={{ scale: 0.95 }}
+  href="/portfolio/resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-3 rounded-xl bg-gradient-to-r from-red-600 to-red-500 px-7 py-4 font-semibold text-white"
+>
+  <FaDownload />
+  Download Resume
+</motion.a>
 
             <motion.a
               whileHover={{
