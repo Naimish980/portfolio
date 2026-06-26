@@ -14,7 +14,7 @@ const cards = [
   {
     icon: <FaUserTie />,
     title: "Experience",
-    value: "1.5+ Years",
+    value: "2.5+ Years",
     color: "from-red-600 to-pink-500",
   },
   {
