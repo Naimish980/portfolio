@@ -56,7 +56,7 @@ export const portfolio = {
       {
         company: "Indira IVF",
         role: "IT Engineer",
-        duration: "May 2025 - Present",
+        duration: "May 2026 - Present",
         description:
           "Managing desktop support, networking, hardware troubleshooting, Windows systems, user support, and IT infrastructure.",
   
@@ -75,7 +75,7 @@ export const portfolio = {
       {
         company: "CM Solutions",
         role: "Desktop Support Engineer",
-        duration: "Sep 2023 - Apr 2025",
+        duration: "Sep 2024 - Jan 2026",
         description:
           "Provided desktop support, OS installation, hardware maintenance, networking, printer support, and software troubleshooting.",
   
@@ -192,28 +192,36 @@ export const portfolio = {
       }
     ],
   
-  certifications: [
-  {
-    title: "Hardware & Networking",
-    issuer: "CM Solutions",
-    year: "2024"
-  },
-  {
-    title: "AWS Solutions Architecture Job Simulation",
-    issuer: "AWS x Forage",
-    year: "2024",
-    link: "/portfolio/certificates/aws-solution-architecture.pdf"
-  },
-  {
-    title: "Linux Administration",
-    issuer: "Udemy",
-    year: "2025"
-  },
-  {
-    title: "Microsoft Office",
-    issuer: "Microsoft",
-    year: "2024"
-  }
-]
+   certifications: [
+    {
+      title: "Hardware & Networking",
+      issuer: "CM Solutions",
+      year: "2024"
+    },
+    {
+      title: "AWS Solutions Architecture Job Simulation",
+      issuer: "AWS | Forage",
+      year: "2024",
+      link: `${import.meta.env.BASE_URL}certificates/aws-solution-architecture.pdf`
+    },
+    {
+      title: "Linux Administration",
+      issuer: "Udemy",
+      year: "2025"
+    },
+    {
+      title: "Microsoft Office",
+      issuer: "Microsoft",
+      year: "2024"
+    },
+    {
+      title: "Software Engineering Job Simulation",
+      issuer: "Goldman Sachs | Forage",
+      year: "December 2024",
+      description:
+        "Completed Goldman Sachs' Software Engineering Job Simulation through Forage. Performed a cybersecurity task involving analysis of a leaked password database and gained exposure to secure software engineering and enterprise information security practices.",
+      link: `${import.meta.env.BASE_URL}certificates/Goaldman.pdf`
+    }
+  ]
 
 };
