@@ -193,35 +193,42 @@ export const portfolio = {
     ],
   
    certifications: [
-    {
-      title: "Hardware & Networking",
-      issuer: "CM Solutions",
-      year: "2024"
-    },
-    {
-      title: "AWS Solutions Architecture Job Simulation",
-      issuer: "AWS | Forage",
-      year: "2024",
-      link: `${import.meta.env.BASE_URL}certificates/aws-solution-architecture.pdf`
-    },
-    {
-      title: "Linux Administration",
-      issuer: "Udemy",
-      year: "2025"
-    },
-    {
-      title: "Microsoft Office",
-      issuer: "Microsoft",
-      year: "2024"
-    },
-    {
-      title: "Software Engineering Job Simulation",
-      issuer: "Goldman Sachs | Forage",
-      year: "December 2024",
-      description:
-        "Completed Goldman Sachs' Software Engineering Job Simulation through Forage. Performed a cybersecurity task involving analysis of a leaked password database and gained exposure to secure software engineering and enterprise information security practices.",
-      link: `${import.meta.env.BASE_URL}certificates/Goaldman.pdf`
-    }
+  {
+    title: "Hardware & Networking",
+    issuer: "CM Solutions",
+    year: "2024"
+  },
+  {
+    title: "AWS Solutions Architecture Job Simulation",
+    issuer: "AWS | Forage",
+    year: "2024",
+    link: `${import.meta.env.BASE_URL}certificates/aws-solution-architecture.pdf`
+  },
+  {
+    title: "Linux Administration",
+    issuer: "Udemy",
+    year: "2025"
+  },
+  {
+    title: "Microsoft Office",
+    issuer: "Microsoft",
+    year: "2024"
+  },
+  {
+    title: "Software Engineering Job Simulation",
+    issuer: "Goldman Sachs | Forage",
+    year: "December 2024",
+    description:
+      "Completed Goldman Sachs' Software Engineering Job Simulation through Forage. Performed a cybersecurity task involving analysis of a leaked password database and gained exposure to secure software engineering and enterprise information security practices.",
+    link: `${import.meta.env.BASE_URL}certificates/Goaldman.pdf`
+  },
+   {
+    title: "Network Security Engineer",
+    issuer: "Skill India Digital Hub / NASSCOM",
+    year: "2026",
+    description:
+      "Successfully completed the Network Security Engineer online skilling course through Skill India Digital Hub.",
+    link: `${import.meta.env.BASE_URL}certificates/network-security-engineer.pdf`
+  }
   ]
-
 };
