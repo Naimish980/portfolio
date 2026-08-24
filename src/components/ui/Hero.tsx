@@ -161,7 +161,7 @@ const Hero = () => {
             <div className="absolute inset-0 rounded-full bg-red-500 opacity-30 blur-[120px]" />
 
             <img
-              src="https://naimish980.github.io/portfolio/profile.jpeg"
+             src={`${import.meta.env.BASE_URL}profile.jpeg`}
               alt={portfolio.name}
               className="relative h-80 w-80 rounded-full border-4 border-red-500 object-cover shadow-[0_0_60px_rgba(239,68,68,.5)] md:h-96 md:w-96"
             />
